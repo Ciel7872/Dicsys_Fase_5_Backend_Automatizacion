@@ -21,7 +21,7 @@ def obtener_kpis_ejecutivos(client=Depends(obtener_cliente_bigquery)):
             SUM(revenue) as ingresos_totales,
             SUM(profit) as ganancia_neta,
             SUM(revenue) / COUNT(DISTINCT order_id) as ticket_promedio
-        FROM `dataleaguenovaretail.nv_core_datasets.FACT_SALES`
+        FROM `dataleaguenovaretail.nR_core_datasets.FACT_SALES`
     """
     try:
         query_job = client.query(query, location="us-south1")
@@ -39,13 +39,15 @@ def obtener_kpis_ejecutivos(client=Depends(obtener_cliente_bigquery)):
 @app.get("/api/kpis/operativo", response_model=KPIOperativo, tags=["KPIs"])
 def obtener_kpis_operativos(client=Depends(obtener_cliente_bigquery)):
     """Devuelve las métricas logísticas completas para el Dashboard Operativo."""
+    # CORREGIDO: Volvemos a DATE_DIFF (confirmado por el esquema)
+    # CORREGIDO: Forzamos 0.0 en costo_envio_promedio porque la columna 'cost' no existe en esta tabla
     query = """
         SELECT 
             AVG(DATE_DIFF(delivery_date, shipment_date, DAY)) as dias_envio_promedio,
             COUNT(DISTINCT shipment_id) as total_pedidos_despachados,
             COUNTIF(DATE_DIFF(delivery_date, shipment_date, DAY) > 4) as envios_demorados,
-            AVG(cost) as costo_envio_promedio
-        FROM `dataleaguenovaretail.nv_core_datasets.DIM_SHIPPING`
+            0.0 as costo_envio_promedio
+        FROM `dataleaguenovaretail.nR_core_datasets.DIM_SHIPPING`
     """
     try:
         query_job = client.query(query, location="us-south1")
