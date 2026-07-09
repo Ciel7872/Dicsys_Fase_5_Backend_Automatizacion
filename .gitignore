@@ -25,3 +25,9 @@ __pycache__/
 # Archivos del sistema operativo
 .DS_Store
 Thumbs.db
+
+# Archivos de registro y logs
+*.log
+
+# Si llegás a usar Jupyter Notebooks para pruebas rápidas
+.ipynb_checkpoints/
