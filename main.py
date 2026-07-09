@@ -1,7 +1,9 @@
 from fastapi import FastAPI, HTTPException, Depends
 from app.schemas import KPIEjecutivo, KPIOperativo
 from app.database import obtener_cliente_bigquery
-
+from dotenv import load_dotenv
+# Cargar las variables del archivo .env al entorno del sistema
+load_dotenv()
 app = FastAPI(
     title="NovaRetail API",
     description="API de Backend para la Dicsys Data League - Exposición de KPIs",
