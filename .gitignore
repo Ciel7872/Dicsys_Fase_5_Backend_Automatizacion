@@ -1,5 +1,4 @@
 
-
 # Archivos de credenciales y llaves privadas (¡CRÍTICO POR SEGURIDAD!)
 gcp-credentials.json
 *.json
