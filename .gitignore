@@ -1,4 +1,5 @@
 
+
 # Archivos de credenciales y llaves privadas (¡CRÍTICO POR SEGURIDAD!)
 gcp-credentials.json
 *.json
@@ -8,6 +9,7 @@ gcp-credentials.json
 venv/
 env/
 ENV/
+.env
 
 # Caché de Python y compilados
 __pycache__/
@@ -24,4 +26,3 @@ __pycache__/
 # Archivos del sistema operativo
 .DS_Store
 Thumbs.db
->>>>>>> 5de4b536f4053cec38e7e9f11ca1ff735d1c139c
