@@ -18,7 +18,20 @@ Dicsys_Fase_5_Backend_Automatizacion/
 
 
 
-1. Clonar el repositorio y crear Entorno Virtual
+## 🐳 Dockerización
+
+El proyecto cuenta con configuración para ser ejecutado mediante Docker.
+
+1. **Requisitos:** Tener instalado [Docker](https://www.docker.com/) y [Docker Compose](https://docs.docker.com/compose/).
+2. **Credenciales:** Asegurate de tener el archivo `gcp-credentials.json` en la raíz del proyecto.
+3. **Ejecución:**
+   Ejecutá el siguiente comando para levantar el contenedor:
+   ```bash
+   docker-compose up --build
+   ```
+4. **Acceso:** La API estará disponible en `http://127.0.0.1:8000/docs`.
+
+## 🛠️ Configuración Local
 Abrí la terminal en la raíz del proyecto y ejecutá: 
 windows: python -m venv .venv
 Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned
