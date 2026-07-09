@@ -1,1 +1,25 @@
+# Archivos de credenciales y llaves privadas (¡CRÍTICO POR SEGURIDAD!)
 gcp-credentials.json
+*.json
+
+# Entorno virtual de Python
+.venv/
+venv/
+env/
+ENV/
+
+# Caché de Python y compilados
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+
+# Configuración de editores de código (VS Code / VSCodium)
+.vscode/
+.workspace
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
